@@ -2,7 +2,7 @@
 Game made with java (swing library)
 
 
-Sa se scrie un joc X si 0. Jocul se va desfasura intr-un JFrame, casutele unde se va da click vor fi butoane si jucatorii pentru X si 0 vor putea sa isi scrie numele.
+###Sa se scrie un joc X si 0. Jocul se va desfasura intr-un JFrame, casutele unde se va da click vor fi butoane si jucatorii pentru X si 0 vor putea sa isi scrie numele.
 
 Jocul este lansat si ruleaza pana la terminare, apoi tot programul se termina.
 
