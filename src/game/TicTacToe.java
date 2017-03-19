@@ -70,11 +70,14 @@ public class TicTacToe {
 		constraints.gridwidth = 2;
 		frame.add(panel, constraints);
 		
-		currentGame = new TicTacToeGame(nameX.getText(), nameO.getText());
+		currentGame = new TicTacToeGame(nameX, nameO);
 		//Initializing the 9 buttons
 		panel.setLayout(new GridBagLayout());
+		JButton[] buttons = new JButton[9];
 		for(int row = 0; row < 3; row++) {
 			for(int col = 0; col < 3; col++) {
+				
+				int poz = row * 3 + col;
 				
 				JButton b = new JButton("   ");
 				b.setFocusable(false);
@@ -84,7 +87,8 @@ public class TicTacToe {
 				constraints.fill = GridBagConstraints.BOTH;
 				constraints.weightx = 1;
 				constraints.weighty = 1;
-				b.addActionListener(new AscultatorButon(frame, currentGame, b, row, col));
+				buttons[poz] = b;
+				b.addActionListener(new AscultatorButon(frame, currentGame, buttons, b, row, col));
 				panel.add(b, constraints);
 				
 			}
