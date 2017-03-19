@@ -14,7 +14,7 @@ public class TicTacToe {
 	
 	public void start() {
 
-		TicTacToeGame currentGame = new TicTacToeGame();
+		TicTacToeGame currentGame;
 		GridBagConstraints constraints;
 		
 		JFrame frame = new JFrame();
@@ -38,8 +38,27 @@ public class TicTacToe {
 		constraints.ipadx = 40;
 		constraints.ipady = 40;
 		frame.add(x, constraints);
-		
 
+		
+		//Initializing and positioning nameX Field
+		JTextField nameO = new JTextField("Player 2");
+		constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 2;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.weightx = 1;
+		frame.add(nameO, constraints);
+		//O Label
+		JLabel o = new JLabel("0", SwingConstants.CENTER);
+		constraints = new GridBagConstraints();
+		constraints.gridx = 1;
+		constraints.gridy = 2;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.ipadx = 40;
+		constraints.ipady = 40;
+		frame.add(o, constraints);
+		
+		
 		//X & 0 buttons panel
 		JPanel panel = new JPanel();
 		constraints = new GridBagConstraints();
@@ -51,42 +70,25 @@ public class TicTacToe {
 		constraints.gridwidth = 2;
 		frame.add(panel, constraints);
 		
+		currentGame = new TicTacToeGame(nameX.getText(), nameO.getText());
 		//Initializing the 9 buttons
 		panel.setLayout(new GridBagLayout());
-		for(int col = 0; col < 3; col++) {
-			for(int row = 0; row < 3; row++) {
+		for(int row = 0; row < 3; row++) {
+			for(int col = 0; col < 3; col++) {
 				
-				JButton b = new JButton("");
+				JButton b = new JButton("   ");
+				b.setFocusable(false);
 				constraints = new GridBagConstraints();
-				constraints.gridx = row;
-				constraints.gridy = col;
+				constraints.gridx = col;
+				constraints.gridy = row;
 				constraints.fill = GridBagConstraints.BOTH;
 				constraints.weightx = 1;
 				constraints.weighty = 1;
-				b.addActionListener(new AscultatorButon(currentGame, b, row, col));
+				b.addActionListener(new AscultatorButon(frame, currentGame, b, row, col));
 				panel.add(b, constraints);
 				
 			}
 		}
-
-		
-		//Initializing and positioning nameX Field
-		JTextField nameY = new JTextField("Player 2");
-		constraints = new GridBagConstraints();
-		constraints.gridx = 0;
-		constraints.gridy = 2;
-		constraints.fill = GridBagConstraints.BOTH;
-		constraints.weightx = 1;
-		frame.add(nameY, constraints);
-		//O Label
-		JLabel o = new JLabel("0", SwingConstants.CENTER);
-		constraints = new GridBagConstraints();
-		constraints.gridx = 1;
-		constraints.gridy = 2;
-		constraints.fill = GridBagConstraints.BOTH;
-		constraints.ipadx = 40;
-		constraints.ipady = 40;
-		frame.add(o, constraints);
 		
 		
 		//Making the game frame visible
