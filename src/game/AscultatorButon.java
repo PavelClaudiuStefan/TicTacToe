@@ -39,7 +39,7 @@ public class AscultatorButon implements ActionListener {
 			JDialog dialog = new JDialog();
 			dialog.setLayout(new GridBagLayout());
 			dialog.setTitle("Game over");
-			dialog.setSize(200,  100);
+			dialog.setSize(300,  200);
 			dialog.setLocationRelativeTo(null);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -47,16 +47,25 @@ public class AscultatorButon implements ActionListener {
 			JLabel winnerText = new JLabel(currentGame.winner());
 			GridBagConstraints constraints = new GridBagConstraints();
 			constraints.gridy = 0;
+			constraints.weighty = 1;
 			dialog.add(winnerText, constraints);
 			
-			JLabel resetText = new JLabel("Reset game?");
+			JLabel outputFileName = new JLabel("Game saved in \"solution.txt\"");
 			constraints = new GridBagConstraints();
 			constraints.gridy = 1;
+			constraints.weighty = 1;
+			dialog.add(outputFileName, constraints);
+			
+			JLabel resetText = new JLabel("New game?");
+			constraints = new GridBagConstraints();
+			constraints.gridy = 2;
+			constraints.weighty = 1;
 			dialog.add(resetText, constraints);
 			
 			JButton butonOk = new JButton("Ok");
 			constraints = new GridBagConstraints();
-			constraints.gridy = 2;
+			constraints.gridy = 3;
+			constraints.weighty = 1;
 			butonOk.setSize(50, 50);
 			butonOk.setFocusable(false);
 			butonOk.addActionListener( new ActionListener() {
