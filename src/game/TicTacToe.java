@@ -69,7 +69,7 @@ public class TicTacToe {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				start();
-				replay();
+				instantReplay();
 				dialog.dispose();
 			}
 		});
@@ -165,7 +165,7 @@ public class TicTacToe {
         
 	}
 	
-	public void replay() {
+	public void instantReplay() {
 		int nrCasuteCompletate;
 		int[][] solution;
 		Scanner input = null;
@@ -196,13 +196,9 @@ public class TicTacToe {
 				buttons[row * 3 + col].setEnabled(false);
 				buttons[row * 3 + col].setText("O");
 			}
-			
-			
-			
+	
 		}
-		
-		
-		
+	
 	}
 
 }
