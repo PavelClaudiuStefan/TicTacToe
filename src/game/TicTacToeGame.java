@@ -92,7 +92,9 @@ public class TicTacToeGame {
 		try {
 			solutionFile = new File("solution.txt");
 			solutionOutput = new PrintWriter(solutionFile);
-			for(int i = 0; i < 9; i++) {
+			
+			solutionOutput.println(casuteCompletate);
+			for(int i = 0; i < casuteCompletate; i++) {
 				solutionOutput.println(solution[i][0] + " " + solution[i][1]);
 				System.out.println(solution[i][0] + " " + solution[i][1]);
 			}
